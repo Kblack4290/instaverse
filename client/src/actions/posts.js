@@ -8,6 +8,7 @@ export const getPosts = () => async (dispatch) => {
         const { data } = await api.fetchPosts()
 
         console.log(dispatch);
+        console.log(data);
 
         dispatch({type: "FETCH_ALL", payload: data })
 
