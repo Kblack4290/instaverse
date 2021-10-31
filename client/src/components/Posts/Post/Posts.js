@@ -3,9 +3,14 @@ import useStyles from './styles.js'
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import { ThumbUpAlt, Delete, MoreHoriz } from '@material-ui/icons'
 import moment from 'moment'
+import { useDispatch } from 'react-redux'
+
+import { deletePost } from '../../../actions/posts.js'
 
 const Post = ({ post, setCurrentId }) => {
     const classes = useStyles();
+    const dispatch = useDispatch()
+
     return (
         <Card className={classes.card}>
             <CardMedia className={classes.media} image={post.selectedFile} title={post.title}></CardMedia>
@@ -34,11 +39,11 @@ const Post = ({ post, setCurrentId }) => {
                     <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
                 </CardContent>
                 <CardActions className={classes.cardActions}>
-                    <Button size="small" color="primary" onClick={() => { }}>
+                    <Button size="small" color="primary" onClick={() => {}}>
                         <ThumbUpAlt fontSize="small" />
                         &nbsp;   Like &nbsp; {post.likeCount}
                     </Button>
-                    <Button size="small" color="primary" onClick={() => { }}>
+                    <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
                         <Delete fontSize="small" />
                         Delete
                     </Button>
