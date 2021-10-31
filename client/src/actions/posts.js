@@ -3,14 +3,14 @@ import * as api from '../api/index.js'
 // Action Creators
 
 export const getPosts = () => async (dispatch) => {
-    
+
     try {
         const { data } = await api.fetchPosts()
 
         console.log(dispatch);
         console.log(data);
 
-        dispatch({type: "FETCH_ALL", payload: data })
+        dispatch({ type: "FETCH_ALL", payload: data })
 
         console.log("GETTING POSTS");
     } catch (error) {
@@ -23,14 +23,24 @@ export const getPosts = () => async (dispatch) => {
 export const createPost = (post) => async (dispatch) => {
     try {
         console.log(post);
-        const {data} = await api.createPost(post)
+        const { data } = await api.createPost(post)
 
         console.log(data);
 
-        dispatch({type: "CREATE", payload:data})
+        dispatch({ type: "CREATE", payload: data })
 
         console.log("CREATED POSTS");
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const updatePost = (id, post) => async (dispatch) => {
+    try {
+        const { data } = await api.updatePost(id, post)
+
+        dispatch({ type: 'UPDATE', payload: data })
+    } catch (error) {
+        console.log(error.message);
     }
 }
