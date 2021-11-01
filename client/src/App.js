@@ -1,43 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core"
-import { useDispatch } from 'react-redux'
-import {getPosts} from './actions/posts.js'
-import Instaverse from './images/Instaverse.png'
-import Posts from './components/Posts/Posts.js'
-import Form from './components/Form/Form.js'
-import usestyles from './styles.js'
-
+import React from 'react'
+import { Container } from "@material-ui/core"
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './components/Home/Home.js'
+import NavBar from './components/NavBar/NavBar.js'
+import Auth from  './components/Auth/Auth.js'
 
 function App() {
-  const [currentId, setCurrentId] = useState(null)
 
-  const classes = usestyles();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPosts())
-  }, [dispatch])
 
   return (
-    <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center" >Instaverse</Typography>
-        <img className={classes.image} src={Instaverse} alt="instaverse" heigh="60" />
 
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid container className={classes.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={4} >
-            <Grid item xs={12} sm={7}>
-              <Posts setCurrentId={setCurrentId}/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
+    <BrowserRouter>
+      <Container maxWidth="lg">
+        <NavBar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/auth" exact component={Auth} />
+        </Switch>
+        
+      </Container>
+    </BrowserRouter>
   );
 }
 
