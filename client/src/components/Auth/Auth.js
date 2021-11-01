@@ -4,17 +4,26 @@ import useStyles from './styles.js';
 import { LockOutlined } from '@material-ui/icons';
 import Input from './Input.js'
 
+const InitialState = {  firstName: "", lastName: "", email: "", password: "", confirmPassword: ""}
+
 const Auth = () => {
+
+
     const [showPassword, setShowPassword] = useState(false)
+    const [formData, setFormData] = useState(InitialState)
     const [isSignUp, setIsSignUp] = useState(false)
     const classes = useStyles()
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
+        console.log(formData);
     }
 
-    const handleChange = () => {
-
+    const handleChange = (e) => {
+        
+        console.log( 'HELLO');
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
@@ -36,7 +45,7 @@ const Auth = () => {
                         className={classes.avatar}>
                         <LockOutlined />
                     </Avatar>
-                    <Typography variant="h50">{isSignUp ? 'Sign Up' : 'Sign in'} </Typography>
+                    <Typography variant="h5">{isSignUp ? 'Sign Up' : 'Sign in'} </Typography>
                     <form
                         className={classes.form}
                         onSubmit={handleSubmit}>
@@ -89,7 +98,7 @@ const Auth = () => {
                         <Grid
                             container
                             justifyContent="flex-end"
-                            justify="flex-end">
+                        >
                             <Button onClick={switchMode}>
                                 {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign Up"}
                             </Button>
