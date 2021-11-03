@@ -3,8 +3,10 @@ import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@
 import useStyles from './styles.js';
 import { LockOutlined } from '@material-ui/icons';
 import Input from './Input.js'
-
-const InitialState = {  firstName: "", lastName: "", email: "", password: "", confirmPassword: ""}
+import { useHistory } from 'react-router-dom'
+import {signin, signup} from '../../actions/auth'
+import { useDispatch } from 'react-redux'
+const InitialState = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" }
 
 const Auth = () => {
 
@@ -13,15 +15,22 @@ const Auth = () => {
     const [formData, setFormData] = useState(InitialState)
     const [isSignUp, setIsSignUp] = useState(false)
     const classes = useStyles()
+    const history = useHistory()
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log(formData);
+
+        if (isSignUp) {
+            dispatch(signup(formData, history))
+        } else {
+            dispatch(signin(formData, history))
+        }
     }
 
     const handleChange = (e) => {
-        
+
         console.log(formData);
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
