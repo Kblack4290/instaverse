@@ -9,7 +9,7 @@ const Input = ({name, label, handleChange, half, autoFocus, type, handleShowPass
             <TextField
                 name={name}
                 label={label}
-                handleChange={handleChange}
+                onChange={handleChange}
                 variant="outlined"
                 required
                 fullWidth

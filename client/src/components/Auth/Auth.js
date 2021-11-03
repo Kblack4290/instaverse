@@ -22,7 +22,7 @@ const Auth = () => {
 
     const handleChange = (e) => {
         
-        console.log( 'HELLO');
+        console.log(formData);
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
