@@ -23,7 +23,7 @@ const NavBar = () => {
     useEffect(() => {
         const token = user?.token
 
-        // JSON WEB TOKEN
+       
 
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [location])
