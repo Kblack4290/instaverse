@@ -32,7 +32,7 @@ const Post = ({ post, setCurrentId }) => {
                 <Typography variant="h6">{post.name}</Typography>
                 <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
             </div>
-            {( user?._id === post?.creator) && (
+            {( user?.result?._id === post?.creator) && (
             <div className={classes.overlay2}>
                 <Button
                     style={{ color: "white" }}
@@ -56,7 +56,7 @@ const Post = ({ post, setCurrentId }) => {
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
-                    <ThumbUpAlt fontSize="small" />
+                    
                     <Likes />
                 </Button>
                 {(user?.result?._id === post?.creator) && (

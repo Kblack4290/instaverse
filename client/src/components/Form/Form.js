@@ -28,12 +28,12 @@ const Form = ({ currentId, setCurrentId }) => {
         } else {
             dispatch(createPost({ ...postData, name: user?.result?.name }))
         }
-        // clear()
+        clear()
     }
 
     const clear = () => {
-        // setCurrentId(null)
-        // setPostData({ title: '', message: '', tags: '', selectedFile: '' })
+        setCurrentId(null)
+        setPostData({ title: '', message: '', tags: '', selectedFile: '' })
     }
 
     if (!user?.result?.name) {
