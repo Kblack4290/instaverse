@@ -4,7 +4,9 @@ import useStyles from './styles.js';
 import Instaverse from '../../images/Instaverse.png';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-const NavBar = () => {
+import decode from 'jwt-decode'
+
+export const NavBar = () => {
 
     const classes = useStyles()
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -23,9 +25,13 @@ const NavBar = () => {
     useEffect(() => {
         const token = user?.token
 
+if(token) {
+    const decodedToken = decode(token)
 
+    if(decodedToken.exp * 1000 < new Date().getTime()) logout()
+}
         setUser(JSON.parse(localStorage.getItem('profile')))
-    }, [location])
+    }, [location, user?.token])
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
@@ -50,4 +56,3 @@ const NavBar = () => {
     )
 }
 
-export default NavBar

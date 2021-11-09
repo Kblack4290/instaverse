@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Paper, Grid, Typography, Container} from '@material-ui/core';
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import useStyles from './styles.js';
 import { LockOutlined } from '@material-ui/icons';
 import Input from './Input.js'
 import { useHistory } from 'react-router-dom'
-import {signin, signup} from '../../actions/auth'
+import { signin, signup } from '../../actions/auth'
 import { useDispatch } from 'react-redux'
 const InitialState = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" }
 
@@ -27,11 +27,13 @@ const Auth = () => {
         } else {
             dispatch(signin(formData, history))
         }
+
+        console.log(formData, history);
     }
 
     const handleChange = (e) => {
 
-        
+
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
