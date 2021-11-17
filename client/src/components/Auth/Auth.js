@@ -28,7 +28,6 @@ const Auth = () => {
             dispatch(signin(formData, history))
         }
 
-        console.log(formData, history);
     }
 
     const handleChange = (e) => {
