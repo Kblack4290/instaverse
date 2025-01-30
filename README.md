@@ -10,24 +10,21 @@
 
 ## Description
 
-Instaverse is a full stack MERN application. Users are able to signup to create a profile. They can then upload photos with a title, description, and hashtags. Users can interact with one another by liking each others posts. If the owner of a post does not like how their post looks then they have an option to edit or delete their post.
-
-This application is ideal for people who like to share their favorite photos and view other users experiences.
+Instaverse is a full-stack MERN (MongoDB, Express, React, Node.js) application that allows users to create profiles, upload photos, and interact with other users' posts. Users can like, edit, and delete posts, making it an ideal platform for sharing and viewing favorite photos and experiences.
 
 ## Usage
 
-Once a user visits instaverse, they will be presented with a homepage that will show current posts by other users. They will not be able to interact or create their own posts until they have signed up. A user can sign up by selecting the sign in button in the navigation bar.
-
-Once the sign in is selected they will be presented with the sign in form. If they have an existing account then they can proceed by entering in their credentials. If they do not have an account then they can select the sign up option at the bottom of the sign in component.
-
-Once the user is signed in to the application they can create their own post by filling out the create post form in their profile. Once they have filled out the form and selected a photo from their local files they can submit the post. If they do not like their post then they can edit it by selecting the edit option on the top right corner of their post. If they want to completely discard the post then they can simply select delete and the post will no longer exist.
-
-A user will see their post with other users posts. If they enjoy another users post then they can like the post one time. If the user decides they no longer like the post then they can simple unlike it by selecting like again.
+1. **Homepage**: Upon visiting Instaverse, users are presented with a homepage displaying current posts by other users.
+2. **Sign Up/Sign In**: Users must sign up or sign in to interact with posts. The sign-in button in the navigation bar leads to the sign-in form. New users can sign up by selecting the sign-up option.
+3. **Create Post**: Signed-in users can create posts by filling out the create post form in their profile, selecting a photo from their local files, and submitting the post.
+4. **Edit/Delete Post**: Users can edit their posts by selecting the edit option on the top right corner of their post or delete the post by selecting the delete option.
+5. **Like/Unlike Post**: Users can like other users' posts by selecting the like button. To unlike a post, users can select the like button again.
 
 ## Technologies
 
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [axios](https://www.npmjs.com/package/axios)
@@ -43,7 +40,7 @@ A user will see their post with other users posts. If they enjoy another users p
 
 ## Deployed Application
 
-- [instaverse](https://instaverse.herokuapp.com/)
+The application is deployed on Render. You can access it [here](https://instaverse-zzuo.onrender.com).
 
 ## Screenshots of Application
 
