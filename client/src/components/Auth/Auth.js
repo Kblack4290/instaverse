@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import {React, useState, useEffect } from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import useStyles from './styles.js';
 import { LockOutlined } from '@material-ui/icons';
 import Input from './Input.js';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { signin, signup } from '../../actions/auth';
 import { useDispatch } from 'react-redux';
 import CustomSnackbar from '../Snackbar/Snackbar.js';
@@ -19,7 +19,7 @@ const Auth = () => {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -30,9 +30,9 @@ const Auth = () => {
                 handleSnackbar("Passwords do not match");
                 return;
             }
-            dispatch(signup(formData, history, handleSnackbar));
+            dispatch(signup(formData, navigate, handleSnackbar));
         } else {
-            dispatch(signin(formData, history, handleSnackbar));
+            dispatch(signin(formData, navigate, handleSnackbar));
         }
     };
 
