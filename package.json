@@ -11,6 +11,9 @@
     "install": "cd client && npm install",
     "build": "cd client && set NODE_OPTIONS=--openssl-legacy-provider && npm run build"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
