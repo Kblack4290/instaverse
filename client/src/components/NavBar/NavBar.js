@@ -4,7 +4,9 @@ import useStyles from './styles.js';
 import Instaverse from '../../images/Instaverse.png';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { jwtDecode } from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export const NavBar = () => {
     const classes = useStyles();
@@ -36,7 +38,7 @@ export const NavBar = () => {
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
                 <Typography className={classes.heading} component={Link} to="/" variant="h2" align="center">instaverse</Typography>
-                <img className={classes.image} src={Instaverse} alt="instaverse" heigh="60" />
+                <LazyLoadImage className={classes.image} src={Instaverse} alt="instaverse" height="60" effect="blur" />
             </div>
             <Toolbar className={classes.toolbar}>
                 {user ? (
